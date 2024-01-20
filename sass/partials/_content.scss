@@ -8,6 +8,7 @@
 .bg{
   background-color: #fcfcfc;
   height: 100vh;
+  overflow: hidden;
   header{
     height: 80px;
     position: fixed;
@@ -202,7 +203,16 @@
   }
 }
 
+@keyframes slideIn2 {
+  from {
+      transform: translateY(100%);
+  }
+  to {
+      transform: translateY(0);
+  }
+}
 body{
+  overflow: hidden;
   background: $color-blue;
 }
 button{
@@ -242,15 +252,21 @@ section.hero{
       h1{
         font-family: $font-family-default;
         color: $color-white;
-        font-size: 50px;
+        font-size: 30px;
+        @include breakpoint-tablet {
+          font-size: 50px;
+        }
       }
       p{
         font-family: $font-family-mose;
         color: $color-white;
         font-weight: lighter;
-        font-size: 22px;
+        font-size: 15px;
         text-wrap: pretty;
         margin-bottom: 30px;
+        @include breakpoint-tablet {
+          font-size: 22px;
+        }
       }
     }
     .center{
@@ -284,7 +300,7 @@ section.hero{
   background-color: $color-white;
   margin-bottom: 30px;
   a{
-    font-size: 25px;
+    font-size: 16px;
     font-family: $font-family-mose;
     color: $color-blue;
   }

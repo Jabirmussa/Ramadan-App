@@ -38,3 +38,28 @@ document.getElementById('icon').addEventListener('click', function() {
 function closePopup() {
     document.getElementById('overlay').style.display = 'none';
 }
+
+
+document.addEventListener("DOMContentLoaded", function() {
+    var contentDiv = document.querySelector('.calendar');
+
+    // Configurando o Hammer.js
+    var hammer = new Hammer(contentDiv);
+    hammer.get('swipe').set({ direction: Hammer.DIRECTION_VERTICAL });
+
+    // Configurando o ScrollMagic
+    var controller = new ScrollMagic.Controller();
+
+    var scene = new ScrollMagic.Scene({
+        triggerElement: contentDiv,
+        triggerHook: 0.8,
+        reverse: false
+    })
+    .setClassToggle(contentDiv, 'slide-in')
+    .addTo(controller);
+
+    // Adicionando o evento de swipe usando Hammer.js
+    hammer.on('swipeup', function() {
+        document.documentElement.scrollTop = 0;
+    });
+});

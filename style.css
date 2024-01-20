@@ -23,6 +23,7 @@
 .bg {
   background-color: #fcfcfc;
   height: 100vh;
+  overflow: hidden;
 }
 .bg header {
   height: 80px;
@@ -216,7 +217,16 @@
     transform: translateY(0);
   }
 }
+@keyframes slideIn2 {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
 body {
+  overflow: hidden;
   background: #002b3e;
 }
 
@@ -263,15 +273,25 @@ section.hero .wrapper .content {
 section.hero .wrapper .content h1 {
   font-family: "ramadan";
   color: #fff;
-  font-size: 50px;
+  font-size: 30px;
+}
+@media (min-width: 48rem) {
+  section.hero .wrapper .content h1 {
+    font-size: 50px;
+  }
 }
 section.hero .wrapper .content p {
   font-family: "montserat";
   color: #fff;
   font-weight: lighter;
-  font-size: 22px;
+  font-size: 15px;
   text-wrap: pretty;
   margin-bottom: 30px;
+}
+@media (min-width: 48rem) {
+  section.hero .wrapper .content p {
+    font-size: 22px;
+  }
 }
 section.hero .wrapper .center {
   overflow: hidden;
@@ -306,7 +326,7 @@ section.hero .backdrop {
   margin-bottom: 30px;
 }
 .btn a {
-  font-size: 25px;
+  font-size: 16px;
   font-family: "montserat";
   color: #002b3e;
 }
