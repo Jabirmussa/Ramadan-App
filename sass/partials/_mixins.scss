@@ -1,0 +1,56 @@
+@mixin grid-layout($column-count, $column-gap: 2rem, $row-gap: null) {
+    $row-gap: if($row-gap == null, $column-gap, $row-gap);
+    display: grid;
+    grid-template-columns: repeat($column-count, 1fr);
+    grid-gap: $row-gap $column-gap;
+    gap: $row-gap $column-gap;
+}
+
+@mixin grid-column-start($number) {
+    grid-column-start: $number;
+}
+
+@mixin grid-row-start($number) {
+    grid-row-start: $number;
+}
+
+@mixin grid-column-span($count) {
+    grid-column-end: span $count;
+}
+
+@mixin grid-row-span($count) {
+    grid-row-end: span $count;
+}
+
+@mixin clearfix {
+    &::after {
+        content: '';
+        display: table;
+        clear: both;
+    }
+}
+
+@mixin placeholder {
+    &::-webkit-input-placeholder {
+        @content;
+    }
+
+    &:-moz-placeholder {
+        @content;
+    }
+
+    &::-moz-placeholder {
+        @content;
+    }
+
+    &:-ms-input-placeholder {
+        @content;
+    }
+}
+
+@function stripUnit($value) {
+    @return math.div($value,($value * 0 + 1));
+}
+@function remToPx($pxValue) {
+    @return math.div(stripUnit($pxValue),stripUnit($html-font-size))+rem;
+}

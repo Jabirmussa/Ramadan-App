@@ -1,0 +1,46 @@
+// use @include mobile/tablet/desktop-small/desktop/large to add breakpoints
+// or use @include breakpoint(1000px) for custom breakpoint
+
+$breakpoints: (
+    "mobile": remToPx(480px),
+    "tablet": remToPx(768px),
+    "desktop-small": remToPx(960px),
+    "desktop-medium": remToPx(1280px),
+    "desktop-large": remToPx(1440px)
+);
+
+@mixin breakpoint-mobile {
+    @media (min-width: map-get($breakpoints, "mobile")){
+        @content;
+    }
+}
+
+@mixin breakpoint-tablet {
+    @media (min-width: map-get($breakpoints, "tablet")){
+        @content;
+    }
+}
+
+@mixin breakpoint-desktop-small {
+    @media (min-width: map-get($breakpoints, "desktop-small")){
+        @content;
+    }
+}
+
+@mixin breakpoint-desktop-medium {
+    @media (min-width: map-get($breakpoints, "desktop-medium")){
+        @content;
+    }
+}
+
+@mixin breakpoint-desktop-large {
+    @media (min-width: map-get($breakpoints, "desktop-large")){
+        @content;
+    }
+}
+
+@mixin breakpoint($bp: 0){
+    @media (min-width: $bp){
+        @content;
+    }
+}

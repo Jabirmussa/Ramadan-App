@@ -1,0 +1,29 @@
+@font-face {
+    font-family: "gracility";
+    src: url('/font/GracilityRegular-0WPqo.ttf');
+  }
+  @font-face {
+    font-family: "montserat";
+    src: url('/font/Montserrat-Regular.ttf');
+  }
+
+  @font-face {
+    font-family: "ramadan";
+    src: url('/font/HidayatullahDemo-mLp39.ttf');
+  }
+
+
+$html-font-size: 16px;
+
+// Colors
+$color-black: #000;
+$color-white: #fff;
+$color-orange:#D95A0D;
+$color-blue: #002b3e;
+$color-green: #3dd41b;
+$color-calendar: #fff5d6;
+
+// Fonts
+$font-family-default: 'ramadan';
+$font-family-title: 'gracility';
+$font-family-mose: 'montserat';
