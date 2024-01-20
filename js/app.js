@@ -66,7 +66,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     function closeCalendar() {
         calendarDiv.style.height = '50px';
-        isOpen = false;
+        isOpen = true;
     }
 });
 
