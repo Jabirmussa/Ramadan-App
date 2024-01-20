@@ -40,33 +40,30 @@ function closePopup() {
 }
 
 
-document.addEventListener("DOMContentLoaded", function() {
-    var calendarDiv = document.querySelector('.calendar');
-    var hammer = new Hammer(calendarDiv);
+// Get a reference to an element
+var card = document.querySelectorAll('.card');
 
-    var isOpen = false;
-    var screenHeight = window.innerHeight;
+// Create a manager to manager the element
+var manager = new Hammer.Manager(card);
 
-    hammer.on('swipeup', function() {
-        if (!isOpen) {
-            openCalendar();
-        }
-    });
+// Create a recognizer
+var Swipe = new Hammer.Swipe();
 
-    hammer.on('swipedown', function() {
-        if (isOpen) {
-            closeCalendar();
-        }
-    });
+// Add the recognizer to the manager
+manager.add(Swipe);
 
-    function openCalendar() {
-        calendarDiv.style.height = '70%';
-        isOpen = true;
-    }
+// Declare global variables to swiped correct distance
+var deltaX = 0;
+var deltaY = 0;
 
-    function closeCalendar() {
-        calendarDiv.style.height = '50px';
-        isOpen = true;
-    }
+// Subscribe to a desired event
+manager.on('swipe', function(e) {
+  deltaX = deltaX + e.deltaX;
+  var direction = e.offsetDirection;
+  var translate3d = 'translate3d(' + deltaX + 'px, 0, 0)';
+  
+  if (direction === 4 || direction === 2) {
+    e.target.innerText = deltaX;
+    e.target.style.transform = translate3d;
+  }
 });
-
