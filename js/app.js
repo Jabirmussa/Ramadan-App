@@ -29,3 +29,12 @@ const observ = new IntersectionObserver ((entries)=>{
 })
 const elements = document.querySelectorAll(".animation");
 elements.forEach(element => observ.observe(element));
+
+//popup
+document.getElementById('icon').addEventListener('click', function() {
+    document.getElementById('overlay').style.display = 'flex';
+});
+
+function closePopup() {
+    document.getElementById('overlay').style.display = 'none';
+}
