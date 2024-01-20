@@ -158,10 +158,10 @@
   display: flex;
   justify-content: center;
   background-color: #002b3e;
-  bottom: 0;
   height: 50px;
   border-radius: 20px 20px 0px 0px;
   width: 100%;
+  transition: height 0.5s ease-out;
 }
 
 .overlay {

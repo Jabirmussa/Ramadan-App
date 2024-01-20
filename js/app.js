@@ -41,25 +41,32 @@ function closePopup() {
 
 
 document.addEventListener("DOMContentLoaded", function() {
-    var contentDiv = document.querySelector('.calendar');
+    var calendarDiv = document.querySelector('.calendar');
+    var hammer = new Hammer(calendarDiv);
 
-    // Configurando o Hammer.js
-    var hammer = new Hammer(contentDiv);
-    hammer.get('swipe').set({ direction: Hammer.DIRECTION_VERTICAL });
+    var isOpen = false;
+    var screenHeight = window.innerHeight;
 
-    // Configurando o ScrollMagic
-    var controller = new ScrollMagic.Controller();
-
-    var scene = new ScrollMagic.Scene({
-        triggerElement: contentDiv,
-        triggerHook: 0.8,
-        reverse: false
-    })
-    .setClassToggle(contentDiv, 'slide-in')
-    .addTo(controller);
-
-    // Adicionando o evento de swipe usando Hammer.js
     hammer.on('swipeup', function() {
-        document.documentElement.scrollTop = 0;
+        if (!isOpen) {
+            openCalendar();
+        }
     });
+
+    hammer.on('swipedown', function() {
+        if (isOpen) {
+            closeCalendar();
+        }
+    });
+
+    function openCalendar() {
+        calendarDiv.style.height = '70%';
+        isOpen = true;
+    }
+
+    function closeCalendar() {
+        calendarDiv.style.height = '50px';
+        isOpen = false;
+    }
 });
+
