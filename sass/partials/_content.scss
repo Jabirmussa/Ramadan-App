@@ -203,6 +203,10 @@
   }
 }
 
+.slide-in {
+  animation: slideIn 0.5s ease-out;
+}
+
 @keyframes slideIn2 {
   from {
       transform: translateY(100%);
