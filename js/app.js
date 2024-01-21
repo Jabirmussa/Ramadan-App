@@ -5,6 +5,37 @@ const observ = new IntersectionObserver ((entries)=>{
 })
 const elements = document.querySelectorAll(".animation");
 elements.forEach(element => observ.observe(element));
+
+
+document.getElementById('sehriCard').addEventListener('click', function () {
+  // Obtenha o tempo da tag <p>
+  var timeString = document.querySelector('#sehriCard p').innerText;
+  
+  // Converta a string de tempo para um objeto de data
+  var time = new Date('1970-01-01T' + timeString + 'Z');
+
+  // Calcule a diferença de tempo em milissegundos
+  var timeDifference = time.getTime() - new Date().getTime();
+
+  // Configure o alarme
+  setTimeout(function () {
+      // Reproduza o som
+      var sound = new Howl({
+          src: ['alarm.wav'], // Substitua pelo caminho do seu arquivo de som
+          volume: 1.0
+      });
+      sound.play();
+
+      // Exiba o popup SweetAlert
+      swal("Alarme Acionado", "Alarme foi acionado!", "success");
+
+      // Faça o popup desaparecer após 2 segundos
+      setTimeout(function () {
+          swal.close();
+      }, 2000);
+  }, timeDifference);
+});
+
 var image = document.getElementById('image');
 
 // image.addEventListener('click', function () {
