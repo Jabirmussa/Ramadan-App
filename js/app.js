@@ -7,18 +7,45 @@ const elements = document.querySelectorAll(".animation");
 elements.forEach(element => observ.observe(element));
 var image = document.getElementById('image');
 
+// image.addEventListener('click', function () {
+//   const findDiv = document.getElementById('findDiv');
+//   const text = document.getElementById('text');
+
+//   findDiv.style.width = '180px';
+//   findDiv.style.borderRadius = '30px';
+//   findDiv.style.padding = '20px';
+
+//   findDiv.style.justifyContent = 'space-between';
+//   text.style.display ='block';
+//   image.style.width = '20px';
+//   image.style.height = '20px';
+// });
+
+let isExpanded = false;
+
 image.addEventListener('click', function () {
   const findDiv = document.getElementById('findDiv');
   const text = document.getElementById('text');
 
-  findDiv.style.width = '180px';
-  findDiv.style.borderRadius = '30px';
-  findDiv.style.padding = '20px';
+  // Verifica o estado atual e altera as propriedades da div
+  if (!isExpanded) {
+    // Estado normal
+    findDiv.style.width = '180px';
+    findDiv.style.borderRadius = '30px';
+    findDiv.style.display = 'flex';
+    findDiv.style.justifyContent = 'space-between';
+    text.style.display = 'block';
+  } else {
+    // Estado inicial
+    findDiv.style.width = '50px';
+    findDiv.style.borderRadius = '50%';
+    findDiv.style.display = 'flex';
+    findDiv.style.justifyContent = 'center';
+    text.style.display = 'none';
+  }
 
-  findDiv.style.justifyContent = 'space-between';
-  text.style.display ='block';
-  image.style.width = '20px';
-  image.style.height = '20px';
+  // Inverte o estado
+  isExpanded = !isExpanded;
 });
 
 function abrirMaps(){

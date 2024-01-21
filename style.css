@@ -185,6 +185,7 @@ section.main .wrapper .find img {
 
 .calendar {
   position: absolute;
+  z-index: 3;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -208,7 +209,6 @@ section.main .wrapper .find img {
   background-color: #f2f5fc;
   display: none;
   transition: transform 0.3s ease-out;
-  z-index: -1;
 }
 
 .hidden {
