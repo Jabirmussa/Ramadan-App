@@ -37,6 +37,7 @@
 }
 .bg header .wrapper .humburguer {
   margin-top: 10px;
+  cursor: pointer;
 }
 .bg header .wrapper .humburguer span {
   display: block;

@@ -65,7 +65,10 @@ if ('serviceWorker' in navigator) {
 
 //popup
 document.getElementById('icon').addEventListener('click', function() {
-    document.getElementById('overlay').style.display = 'flex';
+    //document.getElementById('overlay').style.display = 'flex';
+    const calendar = document.querySelector('.calendar');
+    calendar.style.height = '560px';
+
 });
 
 function closePopup() {
