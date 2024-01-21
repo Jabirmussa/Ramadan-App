@@ -1,3 +1,10 @@
+const observ = new IntersectionObserver ((entries)=>{
+    entries.forEach(entry => {
+        entry.target.classList.toggle("show", entry.isIntersecting);
+    });
+})
+const elements = document.querySelectorAll(".animation");
+elements.forEach(element => observ.observe(element));
 var image = document.getElementById('image');
 
 image.addEventListener('click', function () {
@@ -31,11 +38,6 @@ function abrirMaps(){
   }
 }
 
-
-
-
-
-
 /*pwa*/
 async function registerSW() {
     if ('serviceworker' in navigator){
@@ -60,13 +62,6 @@ if ('serviceWorker' in navigator) {
       });
   }
 
-const observ = new IntersectionObserver ((entries)=>{
-    entries.forEach(entry => {
-        entry.target.classList.toggle("show", entry.isIntersecting);
-    });
-})
-const elements = document.querySelectorAll(".animation");
-elements.forEach(element => observ.observe(element));
 
 //popup
 document.getElementById('icon').addEventListener('click', function() {
