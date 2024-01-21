@@ -36,7 +36,7 @@
   justify-content: space-between;
 }
 .bg header .wrapper .humburguer {
-  margin: 10px;
+  margin-top: 10px;
 }
 .bg header .wrapper .humburguer span {
   display: block;
@@ -73,6 +73,7 @@
   height: 140px;
   padding: 20px;
   border-radius: 10px;
+  transition: transform 300ms ease-out;
 }
 .bg .wrapper .over-views .card:nth-child(2) {
   background-color: #faf3e8;
@@ -90,8 +91,10 @@
   margin-bottom: 5px;
 }
 .bg .wrapper .over-views .card img {
-  margin-top: 20px;
-  margin-left: 80px;
+  position: relative;
+  margin-top: -8px;
+  left: 57px;
+  width: 68px;
 }
 
 .dua {
@@ -157,12 +160,17 @@
   position: absolute;
   display: flex;
   justify-content: center;
+  align-items: center;
   background-color: #002b3e;
   height: 50px;
-  border-radius: 20px 20px 0px 0px;
+  border-radius: 30px 30px 0px 0px;
   width: 100%;
   transition: height 0.5s ease-out;
   bottom: 0;
+}
+.calendar img {
+  width: 25px;
+  height: 25px;
 }
 
 .overlay {
@@ -314,10 +322,11 @@ section.hero .backdrop {
   left: 0;
   right: 0;
   bottom: 0;
-  height: 100%;
+  height: 45%;
   width: 100vw;
   z-index: 2;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(29, 67, 84, 0.9472163866) 87%);
+  background-color: #002b3e;
+  border-radius: 40px 40px 0 0;
 }
 
 .btn {
