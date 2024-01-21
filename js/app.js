@@ -1,3 +1,41 @@
+var image = document.getElementById('image');
+
+image.addEventListener('click', function () {
+  const findDiv = document.getElementById('findDiv');
+  const text = document.getElementById('text');
+
+  findDiv.style.width = '180px';
+  findDiv.style.borderRadius = '30px';
+  findDiv.style.padding = '20px';
+
+  findDiv.style.justifyContent = 'space-between';
+  text.style.display ='block';
+  image.style.width = '20px';
+  image.style.height = '20px';
+});
+
+function abrirMaps(){
+  if (navigator.geolocation){
+    navigator.geolocation.getCurrentPosition(function(position){
+      const latitude = position.coords.latitude;
+      const longitude = position.coords.longitude;
+      const url = `https://www.google.com/maps/search/?api=1&request=${latitude},${longitude}`;
+      window.open(url, '_blank');
+
+    }, function(error){
+      console.error('Ophaaa deu um erro ao obter a location:', error.message);
+    });
+
+  }else{
+    console.error('Baixa-la bom Navegador! esse nao suporta.');
+  }
+}
+
+
+
+
+
+
 /*pwa*/
 async function registerSW() {
     if ('serviceworker' in navigator){
@@ -67,3 +105,4 @@ manager.on('swipe', function(e) {
     e.target.style.transform = translate3d;
   }
 });
+

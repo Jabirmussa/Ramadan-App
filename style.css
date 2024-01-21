@@ -40,21 +40,21 @@
 }
 .bg header .wrapper .humburguer span {
   display: block;
-  margin-bottom: 5px;
-  width: 30px;
-  height: 5px;
+  margin-bottom: 4px;
+  width: 25px;
+  height: 3px;
   background-color: #002b3e;
   border-radius: 5px;
 }
 .bg header .wrapper .humburguer span:nth-child(2) {
-  width: 20px;
+  width: 15px;
 }
 .bg header .wrapper .humburguer span:nth-child(3) {
-  width: 10px;
+  width: 7px;
 }
 .bg header .wrapper .date p {
   font-family: "ramadan";
-  font-size: 20px;
+  font-size: 16px;
   color: #002b3e;
 }
 .bg .wrapper {
@@ -95,6 +95,32 @@
   margin-top: -8px;
   left: 57px;
   width: 68px;
+}
+
+section.main .wrapper .find {
+  position: fixed;
+  height: 50px;
+  width: 50px;
+  bottom: 67px;
+  right: 26px;
+  border-radius: 50%;
+  background-color: #002b3e;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.5s ease-in-out;
+  cursor: pointer;
+}
+section.main .wrapper .find #text {
+  color: #fff;
+  font-size: 13px;
+  font-family: "montserat";
+  display: none;
+}
+section.main .wrapper .find img {
+  position: relative;
+  width: 30px;
+  height: 30px;
 }
 
 .dua {

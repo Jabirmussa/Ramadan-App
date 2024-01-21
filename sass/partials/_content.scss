@@ -21,26 +21,27 @@
         margin-top: 10px;
         span{
           display: block;
-          margin-bottom: 5px;
-          width: 30px;
-          height: 5px;
+          margin-bottom: 4px;
+          width: 25px;
+          height: 3px;
           background-color: $color-blue;
           border-radius: 5px;
           &:nth-child(2){
-            width: 20px;
+            width: 15px;
           }
           &:nth-child(3){
-            width: 10px;
+            width: 7px;
           }
         }
       }
       .date{
         p{
           font-family: $font-family-default;
-          font-size: 20px;
+          font-size: 16px;
           color: $color-blue;
         }
       }
+     
     }
   }
   .wrapper {
@@ -83,6 +84,40 @@
   }
 } 
 }
+section.main{
+  .wrapper{
+    .find{
+      position: fixed;
+      height: 50px;
+      width: 50px;
+      bottom: 67px;
+      right: 26px;
+      border-radius: 50%;
+      background-color: $color-blue;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: 0.5s ease-in-out;
+      cursor: pointer;
+      // &:hover{
+      //   width: 180px;
+      //   border-radius: 30px;
+      // }
+      #text{
+        color: $color-white;
+        font-size: 13px;
+        font-family: $font-family-mose;
+        display: none;
+      }
+      img{
+        position: relative;
+        width: 30px;
+        height: 30px;
+      }
+      }
+    }
+  }
+
 
 .dua{
   position: relative;
