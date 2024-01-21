@@ -25,8 +25,8 @@ function abrirMaps(){
     }, function(error){
       console.error('Ophaaa deu um erro ao obter a location:', error.message);
     });
-
-  }else{
+  }
+  else{
     console.error('Baixa-la bom Navegador! esse nao suporta.');
   }
 }
