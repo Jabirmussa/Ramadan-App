@@ -38,6 +38,7 @@ function abrirMaps(){
   }
 }
 
+
 /*pwa*/
 async function registerSW() {
     if ('serviceworker' in navigator){
@@ -62,7 +63,27 @@ if ('serviceWorker' in navigator) {
       });
   }
 
+  const interativaDiv = document.getElementById('interativa');
 
+  let startY;
+  
+  document.addEventListener('touchstart', (e) => {
+    startY = e.touches[0].clientY;
+  });
+  
+  document.addEventListener('touchmove', (e) => {
+    const currentY = e.touches[0].clientY;
+    const deltaY = startY - currentY;
+  
+    if (deltaY > 50) {
+      interativaDiv.style.display = 'block';
+      interativaDiv.classList.remove('hidden');
+    }
+  });
+  
+  document.addEventListener('touchend', () => {
+    interativaDiv.classList.add('hidden');
+  });
 //popup
 document.getElementById('icon').addEventListener('click', function() {
     //document.getElementById('overlay').style.display = 'flex';
