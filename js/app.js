@@ -94,22 +94,23 @@ image.addEventListener('click', function () {
   isExpanded = !isExpanded;
 });
 
-function abrirMaps(){
-  if (navigator.geolocation){
-    navigator.geolocation.getCurrentPosition(function(position){
-      const latitude = position.coords.latitude;
-      const longitude = position.coords.longitude;
-      const url = `https://www.google.com/maps/search/?api=1&request=${latitude},${longitude}`;
-      window.open(url, '_blank');
-
-    }, function(error){
-      console.error('Ophaaa deu um erro ao obter a location:', error.message);
-    });
-  }
-  else{
-    console.error('Baixa-la bom Navegador! esse nao suporta.');
-  }
-}
+setTimeout(
+  function abrirMaps(){
+    if (navigator.geolocation){
+      navigator.geolocation.getCurrentPosition(function(position){
+        const latitude = position.coords.latitude;
+        const longitude = position.coords.longitude;
+        const url = `https://www.google.com/maps/search/?api=1&request=${latitude},${longitude}`;
+        window.open(url, '_blank');
+  
+      }, function(error){
+        console.error('Ophaaa deu um erro ao obter a location:', error.message);
+      });
+    }
+    else{
+      console.error('Baixa-la bom Navegador! esse nao suporta.');
+    }
+  }, 3000);
 
 
 /*pwa*/
