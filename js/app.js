@@ -101,7 +101,7 @@ setTimeout(
         const latitude = position.coords.latitude;
         const longitude = position.coords.longitude;
         const url = `https://www.google.com/maps/search/?api=1&request=${latitude},${longitude}`;
-        window.open(url, '_blank');
+        window.open(url, 'mesquita central');
   
       }, function(error){
         console.error('Ophaaa deu um erro ao obter a location:', error.message);
