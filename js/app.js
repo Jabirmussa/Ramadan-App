@@ -5,31 +5,50 @@ const observ = new IntersectionObserver ((entries)=>{
 })
 const elements = document.querySelectorAll(".animation");
 elements.forEach(element => observ.observe(element));
+/*
+// Get a reference to an element
+var card = document.querySelectorAll('.card');
 
+// Create a manager to manager the element
+var manager = new Hammer.Manager(card);
+
+// Create a recognizer
+var Swipe = new Hammer.Swipe();
+
+// Add the recognizer to the manager
+manager.add(Swipe);
+
+// Declare global variables to swiped correct distance
+var deltaX = 0;
+var deltaY = 0;
+
+// Subscribe to a desired event
+manager.on('swipe', function(e) {
+  deltaX = deltaX + e.deltaX;
+  var direction = e.offsetDirection;
+  var translate3d = 'translate3d(' + deltaX + 'px, 0, 0)';
+  
+  if (direction === 4 || direction === 2) {
+    e.target.innerText = deltaX;
+    e.target.style.transform = translate3d;
+  }
+});
+*/
 
 document.getElementById('sehriCard').addEventListener('click', function () {
-  // Obtenha o tempo da tag <p>
   var timeString = document.querySelector('#sehriCard p').innerText;
   
-  // Converta a string de tempo para um objeto de data
   var time = new Date('1970-01-01T' + timeString + 'Z');
-
-  // Calcule a diferença de tempo em milissegundos
   var timeDifference = time.getTime() - new Date().getTime();
-
-  // Configure o alarme
   setTimeout(function () {
-      // Reproduza o som
       var sound = new Howl({
-          src: ['alarm.wav'], // Substitua pelo caminho do seu arquivo de som
+          src: ['alarm.wav'],
           volume: 1.0
       });
       sound.play();
 
-      // Exiba o popup SweetAlert
       swal("Alarme Acionado", "Alarme foi acionado!", "success");
 
-      // Faça o popup desaparecer após 2 segundos
       setTimeout(function () {
           swal.close();
       }, 2000);
@@ -52,22 +71,19 @@ var image = document.getElementById('image');
 //   image.style.height = '20px';
 // });
 
-let isExpanded = false;
+var isExpanded = false;
 
 image.addEventListener('click', function () {
   const findDiv = document.getElementById('findDiv');
   const text = document.getElementById('text');
 
-  // Verifica o estado atual e altera as propriedades da div
   if (!isExpanded) {
-    // Estado normal
     findDiv.style.width = '180px';
     findDiv.style.borderRadius = '30px';
     findDiv.style.display = 'flex';
-    findDiv.style.justifyContent = 'space-between';
+    findDiv.style.gap = '10px';
     text.style.display = 'block';
   } else {
-    // Estado inicial
     findDiv.style.width = '50px';
     findDiv.style.borderRadius = '50%';
     findDiv.style.display = 'flex';
@@ -75,7 +91,6 @@ image.addEventListener('click', function () {
     text.style.display = 'none';
   }
 
-  // Inverte o estado
   isExpanded = !isExpanded;
 });
 
@@ -155,31 +170,5 @@ function closePopup() {
 }
 
 
-// Get a reference to an element
-var card = document.querySelectorAll('.card');
 
-// Create a manager to manager the element
-var manager = new Hammer.Manager(card);
-
-// Create a recognizer
-var Swipe = new Hammer.Swipe();
-
-// Add the recognizer to the manager
-manager.add(Swipe);
-
-// Declare global variables to swiped correct distance
-var deltaX = 0;
-var deltaY = 0;
-
-// Subscribe to a desired event
-manager.on('swipe', function(e) {
-  deltaX = deltaX + e.deltaX;
-  var direction = e.offsetDirection;
-  var translate3d = 'translate3d(' + deltaX + 'px, 0, 0)';
-  
-  if (direction === 4 || direction === 2) {
-    e.target.innerText = deltaX;
-    e.target.style.transform = translate3d;
-  }
-});
 
