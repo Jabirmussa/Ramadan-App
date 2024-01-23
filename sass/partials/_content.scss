@@ -5,6 +5,9 @@
   text-decoration: none;
   list-style: none;
 }
+.dark{
+  background-color: $color-black;
+}
 .bg{
   background-color: #fcfcfc;
   height: 100vh;
@@ -20,6 +23,9 @@
       .humburguer{
         margin-top: 10px;
         cursor: pointer;
+        img{
+          width: 30px;
+        }
         span{
           display: block;
           margin-bottom: 4px;

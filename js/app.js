@@ -5,6 +5,19 @@ const observ = new IntersectionObserver ((entries)=>{
 })
 const elements = document.querySelectorAll(".animation");
 elements.forEach(element => observ.observe(element));
+
+
+function dark(){
+  const bg = document.querySelector('.bg');
+  const text = document.querySelector('p');
+  const span = document.querySelector('span');
+  const image = document.querySelector('.image');
+  bg.style.backgroundColor = '#222527';
+  text.style.color = '#fff';
+  ReportBody.span.style.color = '#fff';
+  image.innerHTML = '<img src="lua.svg">';
+
+}
 /*
 // Get a reference to an element
 var card = document.querySelectorAll('.card');
@@ -94,7 +107,7 @@ image.addEventListener('click', function () {
   isExpanded = !isExpanded;
 });
 
-setTimeout(
+
   function abrirMaps(){
     if (navigator.geolocation){
       navigator.geolocation.getCurrentPosition(function(position){
@@ -110,7 +123,7 @@ setTimeout(
     else{
       console.error('Baixa-la bom Navegador! esse nao suporta.');
     }
-  }, 3000);
+  }
 
 
 /*pwa*/

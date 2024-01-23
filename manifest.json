@@ -4,7 +4,7 @@
     "start_url": "index.html",
     "display": "standalone",
     "background_color": "#002b3e",
-    "theme_color": "black",
+    "theme_color": "#002b3e",
     "scope": "",
     "description": "Ramadan",
     "icons": [
