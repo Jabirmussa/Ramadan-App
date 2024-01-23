@@ -16,7 +16,6 @@ function dark(){
   text.style.color = '#fff';
   ReportBody.span.style.color = '#fff';
   image.innerHTML = '<img src="lua.svg">';
-
 }
 /*
 // Get a reference to an element
