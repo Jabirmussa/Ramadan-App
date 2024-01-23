@@ -6,6 +6,27 @@ const observ = new IntersectionObserver ((entries)=>{
 const elements = document.querySelectorAll(".animation");
 elements.forEach(element => observ.observe(element));
 
+if ("Notification" in window) {
+  Notification.requestPermission().then(function (permission) {
+    if (permission === "granted") {
+      console.log("Permissão para notificações concedida!");
+    }
+  });
+}
+function enviarNotificacao() {
+  if (Notification.permission === "granted") {
+    var notificacao = new Notification("Alarm", {
+      body: "vai receber uma notificacao",
+    });
+
+  } else if (Notification.permission !== "denied") {
+    Notification.requestPermission().then(function (permission) {
+      if (permission === "granted") {
+        enviarNotificacao();
+      }
+    });
+  }
+}
 
 function dark(){
   const bg = document.querySelector('.bg');
