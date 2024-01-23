@@ -6,6 +6,33 @@ const observ = new IntersectionObserver ((entries)=>{
 const elements = document.querySelectorAll(".animation");
 elements.forEach(element => observ.observe(element));
 
+let deferredPrompt;
+window.addEventListener('beforeinstallprompt', (event) => {
+  event.preventDefault();
+  deferredPrompt = event;
+  showInstallButton();
+});
+
+function showInstallButton() {
+  const installButton = document.getElementById('install-button');
+  installButton.style.display = 'block';
+
+  installButton.addEventListener('click', () => {
+    deferredPrompt.prompt();
+    deferredPrompt.userChoice.then((choiceResult) => {
+      if (choiceResult.outcome === 'accepted') {
+        console.log('Usuário aceitou instalar a PWA');
+      } else {
+        console.log('Usuário recusou instalar a PWA');
+      }
+      deferredPrompt = null;
+    });
+    installButton.style.display = 'none';
+  });
+}
+
+
+
 if ("Notification" in window) {
   Notification.requestPermission().then(function (permission) {
     if (permission === "granted") {
@@ -18,7 +45,6 @@ function enviarNotificacao() {
     var notificacao = new Notification("Alarm", {
       body: "vai receber uma notificacao",
     });
-
   } else if (Notification.permission !== "denied") {
     Notification.requestPermission().then(function (permission) {
       if (permission === "granted") {

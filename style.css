@@ -423,4 +423,13 @@ section.hero .backdrop {
   overflow: none;
 }
 
+.wrapper .instalar {
+  background-color: #fff;
+  padding: 10px 13px;
+  display: flex;
+  border-radius: 20px;
+  color: #002b3e;
+  font-family: "montserat";
+}
+
 /*# sourceMappingURL=style.css.map */

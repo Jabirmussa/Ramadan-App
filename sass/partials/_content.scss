@@ -401,3 +401,14 @@ section.hero{
   transform: translate(0);
   overflow: none;
 }
+
+.wrapper{
+  .instalar{
+    background-color: $color-white;
+    padding: 10px 13px;
+    display: flex;
+    border-radius: 20px;
+    color: $color-blue;
+    font-family: $font-family-mose;
+  }
+}
