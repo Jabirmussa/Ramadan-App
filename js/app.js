@@ -1,3 +1,17 @@
+const hadth = document.querySelector("#hadth");
+const apiUrl = 'https://www.hadithapi.com/api/hadiths?apiKey=$2y$10$TpJ5rZxZ3slRbOo94E29Qmnkjc8jUX7i3147SEybbTT0lt2HyA6';
+fetch(apiUrl)
+.then(response => response.json())
+.then(data => {
+    console.log(data);
+    var ditos = data.hadiths.data[0].hadithEnglish
+    hadth.innerText = ditos
+})
+.catch(error => {
+    console.log(error);
+})
+
+
 const observ = new IntersectionObserver ((entries)=>{
     entries.forEach(entry => {
         entry.target.classList.toggle("show", entry.isIntersecting);
@@ -15,7 +29,7 @@ window.addEventListener('beforeinstallprompt', (event) => {
 
 function showInstallButton() {
   const installButton = document.getElementById('install-button');
-  installButton.style.display = 'block';
+  installButton.style.display = 'flex';
 
   installButton.addEventListener('click', () => {
     deferredPrompt.prompt();
@@ -62,8 +76,12 @@ function dark(){
   bg.style.backgroundColor = '#222527';
   text.style.color = '#fff';
   ReportBody.span.style.color = '#fff';
-  image.innerHTML = '<img src="lua.svg">';
+  toggle.src = './light-mode.svg';
 }
+
+// var toggle = document.querySelector('#toggle');
+
+// toggle.addEventListener('click', dark)
 /*
 // Get a reference to an element
 var card = document.querySelectorAll('.card');
@@ -230,5 +248,31 @@ function closePopup() {
 }
 
 
+const fs = require('fs');
 
+function readJsonFile(filePath) {
+  const fileContent = fs.readFileSync(filePath, 'utf-8');
+  return JSON.parse(fileContent);
+}
+
+function updateQuote() {
+  const jsonData = readJsonFile('quotes.json');
+  const quote = jsonData.quote;
+
+  // Seleciona a tag h1 com um ID específico (substitua 'suaH1Id' pelo ID desejado)
+  const h1Element = document.getElementById('h1');
+
+  // Atualiza a tag h1 com a citação
+  if (h1Element) {
+    h1Element.textContent = quote;
+  }
+
+  // Chama a função novamente após 1 minuto (60.000 milissegundos)
+  setTimeout(updateQuote, 60000);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  // Chama a função para a primeira atualização
+  updateQuote();
+});
 
