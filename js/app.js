@@ -16,6 +16,24 @@ fetch(apiUrl)
     console.log(error);
 })
 
+var dataAtual = new Date();
+
+  // Dias da semana em português
+  var diasSemana = ['Domingo', 'Segunda-feira', 'Terça-feira', 'Quarta-feira', 'Quinta-feira', 'Sexta-feira', 'Sábado'];
+
+  // Meses em português
+  var meses = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'];
+
+  // Obter informações da data
+  var diaSemanaAtual = diasSemana[dataAtual.getDay()];
+  var diaAtual = dataAtual.getDate();
+  var mesAtual = meses[dataAtual.getMonth()];
+
+  // Atualizar os elementos HTML
+  document.getElementById('diaSemana').textContent = diaSemanaAtual + ",";
+  document.getElementById('dia').textContent = diaAtual;
+  document.getElementById('mes').textContent = mesAtual;
+
 
 const observ = new IntersectionObserver ((entries)=>{
     entries.forEach(entry => {
