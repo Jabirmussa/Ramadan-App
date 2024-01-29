@@ -1,3 +1,36 @@
+const observ = new IntersectionObserver ((entries)=>{
+  entries.forEach(entry => {
+      entry.target.classList.toggle("show", entry.isIntersecting);
+  });
+})
+const elements = document.querySelectorAll(".animation");
+elements.forEach(element => observ.observe(element));
+
+let deferredPrompt;
+window.addEventListener('beforeinstallprompt', (event) => {
+  event.preventDefault();
+  deferredPrompt = event;
+  showInstallButton();
+});
+
+function showInstallButton() {
+  const installButton = document.getElementById('install-button');
+  installButton.style.display = 'flex';
+
+  installButton.addEventListener('click', () => {
+    deferredPrompt.prompt();
+    deferredPrompt.userChoice.then((choiceResult) => {
+      if (choiceResult.outcome === 'accepted') {
+        console.log('Usuário aceitou instalar a PWA');
+      } else {
+        console.log('Usuário recusou instalar a PWA');
+      }
+      deferredPrompt = null;
+    });
+    installButton.style.display = 'none';
+  });
+}
+
 const hadth = document.querySelector("#hadth");
 const narrator = document.querySelector(".narrator");
 const apiUrl = 'https://www.hadithapi.com/api/hadiths?apiKey=$2y$10$TpJ5rZxZ3slRbOo94E29Qmnkjc8jUX7i3147SEybbTT0lt2HyA6';
@@ -68,38 +101,6 @@ var dataActual = new Date();
     var nomesMesesIslâmicos = ['Muharram', 'Safar', 'Rabi\' al-Awwal', 'Rabi\' al-Thani', 'Jumada al-Awwal', 'Jumada al-Thani', 'Rajab', 'Sha\'ban', 'Ramadã', 'Shawwal', 'Dhu al-Qi\'dah', 'Dhu al-Hijjah'];
     return nomesMesesIslâmicos[mês - 1];
   }
-const observ = new IntersectionObserver ((entries)=>{
-    entries.forEach(entry => {
-        entry.target.classList.toggle("show", entry.isIntersecting);
-    });
-})
-const elements = document.querySelectorAll(".animation");
-elements.forEach(element => observ.observe(element));
-
-let deferredPrompt;
-window.addEventListener('beforeinstallprompt', (event) => {
-  event.preventDefault();
-  deferredPrompt = event;
-  showInstallButton();
-});
-
-function showInstallButton() {
-  const installButton = document.getElementById('install-button');
-  installButton.style.display = 'flex';
-
-  installButton.addEventListener('click', () => {
-    deferredPrompt.prompt();
-    deferredPrompt.userChoice.then((choiceResult) => {
-      if (choiceResult.outcome === 'accepted') {
-        console.log('Usuário aceitou instalar a PWA');
-      } else {
-        console.log('Usuário recusou instalar a PWA');
-      }
-      deferredPrompt = null;
-    });
-    installButton.style.display = 'none';
-  });
-}
 
 
 
@@ -135,39 +136,6 @@ function dark(){
   toggle.src = './light-mode.svg';
 }
 
-// var toggle = document.querySelector('#toggle');
-
-// toggle.addEventListener('click', dark)
-/*
-// Get a reference to an element
-var card = document.querySelectorAll('.card');
-
-// Create a manager to manager the element
-var manager = new Hammer.Manager(card);
-
-// Create a recognizer
-var Swipe = new Hammer.Swipe();
-
-// Add the recognizer to the manager
-manager.add(Swipe);
-
-// Declare global variables to swiped correct distance
-var deltaX = 0;
-var deltaY = 0;
-
-// Subscribe to a desired event
-manager.on('swipe', function(e) {
-  deltaX = deltaX + e.deltaX;
-  var direction = e.offsetDirection;
-  var translate3d = 'translate3d(' + deltaX + 'px, 0, 0)';
-  
-  if (direction === 4 || direction === 2) {
-    e.target.innerText = deltaX;
-    e.target.style.transform = translate3d;
-  }
-});
-*/
-
 document.getElementById('sehriCard').addEventListener('click', function () {
   var timeString = document.querySelector('#sehriCard p').innerText;
   
@@ -189,20 +157,6 @@ document.getElementById('sehriCard').addEventListener('click', function () {
 });
 
 var image = document.getElementById('image');
-
-// image.addEventListener('click', function () {
-//   const findDiv = document.getElementById('findDiv');
-//   const text = document.getElementById('text');
-
-//   findDiv.style.width = '180px';
-//   findDiv.style.borderRadius = '30px';
-//   findDiv.style.padding = '20px';
-
-//   findDiv.style.justifyContent = 'space-between';
-//   text.style.display ='block';
-//   image.style.width = '20px';
-//   image.style.height = '20px';
-// });
 
 var isExpanded = false;
 
@@ -303,32 +257,4 @@ function closePopup() {
     document.getElementById('overlay').style.display = 'none';
 }
 
-
-const fs = require('fs');
-
-function readJsonFile(filePath) {
-  const fileContent = fs.readFileSync(filePath, 'utf-8');
-  return JSON.parse(fileContent);
-}
-
-function updateQuote() {
-  const jsonData = readJsonFile('quotes.json');
-  const quote = jsonData.quote;
-
-  // Seleciona a tag h1 com um ID específico (substitua 'suaH1Id' pelo ID desejado)
-  const h1Element = document.getElementById('h1');
-
-  // Atualiza a tag h1 com a citação
-  if (h1Element) {
-    h1Element.textContent = quote;
-  }
-
-  // Chama a função novamente após 1 minuto (60.000 milissegundos)
-  setTimeout(updateQuote, 60000);
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-  // Chama a função para a primeira atualização
-  updateQuote();
-});
 
