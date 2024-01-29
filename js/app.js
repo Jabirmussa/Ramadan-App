@@ -1,4 +1,5 @@
 const hadth = document.querySelector("#hadth");
+const narrator = document.querySelector(".narrator");
 const apiUrl = 'https://www.hadithapi.com/api/hadiths?apiKey=$2y$10$TpJ5rZxZ3slRbOo94E29Qmnkjc8jUX7i3147SEybbTT0lt2HyA6';
 fetch(apiUrl)
 .then(response => response.json())
@@ -7,7 +8,9 @@ fetch(apiUrl)
     const total = data.hadiths.data.length
     const randomHadiths = Math.floor(Math.random()*total)
     var ditos = data.hadiths.data[randomHadiths].hadithEnglish
+    var nara = data.hadiths.data[randomHadiths].englishNarrator
     hadth.innerText = ditos
+    narrator.innerText = nara
 })
 .catch(error => {
     console.log(error);
