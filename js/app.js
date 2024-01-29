@@ -4,7 +4,9 @@ fetch(apiUrl)
 .then(response => response.json())
 .then(data => {
     console.log(data);
-    var ditos = data.hadiths.data[0].hadithEnglish
+    const total = data.hadiths.data.length
+    const randomHadiths = Math.floor(Math.random()*total)
+    var ditos = data.hadiths.data[randomHadiths].hadithEnglish
     hadth.innerText = ditos
 })
 .catch(error => {
