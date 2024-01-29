@@ -102,28 +102,14 @@ var dataActual = new Date();
     return nomesMesesIslâmicos[mês - 1];
   }
 
+  
 
 
-if ("Notification" in window) {
-  Notification.requestPermission().then(function (permission) {
-    if (permission === "granted") {
-      console.log("Permissão para notificações concedida!");
-    }
-  });
-}
-function enviarNotificacao() {
-  if (Notification.permission === "granted") {
-    var notificacao = new Notification("Alarm", {
-      body: "vai receber uma notificacao",
-    });
-  } else if (Notification.permission !== "denied") {
-    Notification.requestPermission().then(function (permission) {
-      if (permission === "granted") {
-        enviarNotificacao();
-      }
-    });
-  }
-}
+Notification.requestPermission()
+.then( permission => {
+  new Notification('hello Jabir!');
+})
+
 
 function dark(){
   const bg = document.querySelector('.bg');
