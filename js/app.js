@@ -51,65 +51,46 @@ fetch(apiUrl)
 
 var dataAtual = new Date();
 
-  // Dias da semana em português
   var diasSemana = ['Domingo', 'Segunda-feira', 'Terça-feira', 'Quarta-feira', 'Quinta-feira', 'Sexta-feira', 'Sábado'];
-
-  // Meses em português
   var meses = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'];
 
-  // Obter informações da data
   var diaSemanaAtual = diasSemana[dataAtual.getDay()];
   var diaAtual = dataAtual.getDate();
   var mesAtual = meses[dataAtual.getMonth()];
 
-  // Atualizar os elementos HTML
   document.getElementById('diaSemana').textContent = diaSemanaAtual + ",";
   document.getElementById('dia').textContent = diaAtual;
   document.getElementById('mes').textContent = mesAtual;
 
-//arabe 
 var dataActual = new Date();
 
-  // Calcular a data islâmica (Hijri)
   var dataIslâmica = calcularDataIslâmica(dataActual);
-
-  // Atualizar o elemento HTML
   document.getElementById('dataIslamic').textContent = dataIslâmica;
 
-  // Função para calcular a data islâmica
   function calcularDataIslâmica(dataGregoriana) {
-    // Obter o ano islâmico
     var anoIslâmico = calcularAnoIslâmico(dataGregoriana.getFullYear(), dataGregoriana.getMonth() + 1, dataGregoriana.getDate());
-
-    // Formatar a data islâmica
     var dataIslâmicaFormatada = dataGregoriana.getDate() + ' ' + obterNomeMêsIslâmico(dataGregoriana.getMonth() + 1) + ' ' + anoIslâmico + ' AH';
 
     return dataIslâmicaFormatada;
   }
 
-  // Função para calcular o ano islâmico
   function calcularAnoIslâmico(ano, mês, dia) {
     if (mês < 3 || (mês === 3 && dia < 21)) {
-      return ano - 622; // A Hégira começou em 21 de março de 622 DC
+      return ano - 622;
     } else {
       return ano - 621;
     }
   }
 
-  // Função para obter o nome do mês islâmico
   function obterNomeMêsIslâmico(mês) {
     var nomesMesesIslâmicos = ['Muharram', 'Safar', 'Rabi\' al-Awwal', 'Rabi\' al-Thani', 'Jumada al-Awwal', 'Jumada al-Thani', 'Rajab', 'Sha\'ban', 'Ramadã', 'Shawwal', 'Dhu al-Qi\'dah', 'Dhu al-Hijjah'];
     return nomesMesesIslâmicos[mês - 1];
   }
 
-  
-
-
 Notification.requestPermission()
 .then( permission => {
   new Notification('hello Jabir!');
 })
-
 
 function dark(){
   const bg = document.querySelector('.bg');
@@ -143,7 +124,6 @@ document.getElementById('sehriCard').addEventListener('click', function () {
 });
 
 var image = document.getElementById('image');
-
 var isExpanded = false;
 
 image.addEventListener('click', function () {
@@ -231,6 +211,7 @@ if ('serviceWorker' in navigator) {
   document.addEventListener('touchend', () => {
     interativaDiv.classList.add('hidden');
   });
+
 //popup
 document.getElementById('icon').addEventListener('click', function() {
     //document.getElementById('overlay').style.display = 'flex';
