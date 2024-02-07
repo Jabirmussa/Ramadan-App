@@ -20,10 +20,6 @@
   list-style: none;
 }
 
-.dark {
-  background-color: #000;
-}
-
 .bg {
   background-color: #fcfcfc;
   height: 100vh;
@@ -40,6 +36,7 @@
   justify-content: space-between;
 }
 .bg header .wrapper .humburguer {
+  transition: 0.4s ease-in-out;
   margin-top: 10px;
   cursor: pointer;
 }
@@ -167,7 +164,7 @@ section.main .wrapper .find img {
   position: absolute;
   z-index: 3;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   background-color: #002b3e;
   height: 50px;
@@ -179,6 +176,12 @@ section.main .wrapper .find img {
 .calendar img {
   width: 25px;
   height: 25px;
+}
+.calendar a {
+  color: #fcfcfc;
+  font-family: "montserat";
+  font-size: 16px;
+  text-decoration: underline;
 }
 
 #interativa {
@@ -359,6 +362,17 @@ section.hero .backdrop {
   border-radius: 40px 40px 0 0;
 }
 
+.btn-show {
+  padding: 10px 30px;
+  border-radius: 20px;
+  background-color: #fff;
+  color: #202020;
+}
+
+.green {
+  background-color: rgb(173, 255, 47);
+}
+
 .btn {
   position: relative;
   padding: 20px 30px;
@@ -430,6 +444,57 @@ section.hero .backdrop {
   border-radius: 20px;
   color: #002b3e;
   font-family: "montserat";
+}
+
+.about {
+  background-color: #202020;
+  height: 100vh;
+}
+.about .wrapper {
+  position: relative;
+}
+.about .wrapper .image-text {
+  position: absolute;
+  top: 150px;
+}
+.about .wrapper .image-text img {
+  width: 100%;
+}
+@media (min-width: 48rem) {
+  .about .wrapper .image-text img {
+    width: 70%;
+    margin: auto;
+  }
+}
+.about .wrapper .image-text p {
+  font-size: 20px;
+  font-family: "montserat";
+  color: #fff;
+  line-height: 24px;
+  margin-top: 30px;
+}
+.about .wrapper .image-text .social {
+  margin-top: 30px;
+}
+.about .wrapper .image-text footer p {
+  text-align: center;
+  font-family: mose;
+  font-size: 16px;
+}
+.about .wrapper .image-text footer .social-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.about .wrapper .image-text footer .social-icon a > img {
+  width: 20px;
+  margin: 3px;
+}
+.about .wrapper .seta img {
+  position: absolute;
+  width: 10%;
+  rotate: 180deg;
+  top: 20px;
 }
 
 /*# sourceMappingURL=style.css.map */

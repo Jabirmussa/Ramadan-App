@@ -5,9 +5,6 @@
   text-decoration: none;
   list-style: none;
 }
-.dark{
-  background-color: $color-black;
-}
 .bg{
   background-color: #fcfcfc;
   height: 100vh;
@@ -21,6 +18,7 @@
       display: flex;
       justify-content: space-between;
       .humburguer{
+        transition: .4s ease-in-out;
         margin-top: 10px;
         cursor: pointer;
         img{
@@ -160,7 +158,7 @@ section.main{
   position: absolute;
   z-index: 3;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   background-color: $color-blue;
   height: 50px;
@@ -171,6 +169,12 @@ section.main{
   img{
     width: 25px;
     height: 25px;
+  }
+  a{
+    color: #fcfcfc;
+    font-family: $font-family-mose;
+    font-size: 16px;
+    text-decoration: underline;
   }
 }
 
@@ -343,6 +347,17 @@ section.hero{
 }
 }
 
+.btn-show{
+  padding: 10px 30px;
+  border-radius: 20px;
+  background-color: $color-white;
+  color: #202020;
+}
+
+.green{
+  background-color: rgb(173, 255, 47);
+}
+
 .btn{
   position: relative;
   padding: 20px 30px;
@@ -412,3 +427,55 @@ section.hero{
     font-family: $font-family-mose;
   }
 }
+
+.about{
+  background-color: #202020;
+  height: 100vh;
+  .wrapper{
+    position: relative;
+    .image-text{
+      position: absolute;
+      top: 150px;
+      img{
+        width: 100%;
+        @include breakpoint-tablet {
+          width: 70%;
+          margin: auto;
+        }
+      }
+      p{
+        font-size: 20px;
+        font-family: $font-family-mose;
+        color: #fff;
+        line-height: 24px;
+        margin-top: 30px;
+      }
+      .social{
+        margin-top: 30px;
+      }
+     
+      footer p{
+        text-align: center;
+        font-family: mose;
+        font-size: 16px;
+      }
+      footer .social-icon{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      footer .social-icon a > img{
+
+        width: 20px;
+        margin: 3px;
+      }
+    }
+    .seta img{
+        position: absolute;
+        width: 10%;
+        rotate: 180deg;
+        top: 20px;
+    }
+  }
+}
+

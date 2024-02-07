@@ -92,16 +92,28 @@ Notification.requestPermission()
   new Notification('hello Jabir!');
 })
 
-function dark(){
-  const bg = document.querySelector('.bg');
-  const text = document.querySelector('p');
-  const span = document.querySelector('span');
-  const image = document.querySelector('.image');
-  bg.style.backgroundColor = '#222527';
-  text.style.color = '#fff';
-  ReportBody.span.style.color = '#fff';
-  toggle.src = './light-mode.svg';
+const modeIcon = document.querySelector('#mode-icon');
+const color = document.querySelector('.color');
+const span = document.querySelector('#dataIslamic');
+isDarkMode = false;
+function toggleMode(){
+  if(isDarkMode){
+    isDarkMode = false;
+    modeIcon.src = '/light.svg';
+    document.body.style.backgroundColor = '#fcfcfc';
+    color.style.color = '#002b3e';
+    dataIslamic.style.color = '#002b3e'
+  } else{
+    isDarkMode = true;
+    modeIcon.src = '/lua.svg';
+    document.body.style.backgroundColor = '#202020';
+    color.style.color = '#fff';
+    dataIslamic.style.color = '#fff'
+  }
 }
+modeIcon.addEventListener('click', toggleMode);
+
+
 
 document.getElementById('sehriCard').addEventListener('click', function () {
   var timeString = document.querySelector('#sehriCard p').innerText;
