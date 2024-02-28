@@ -8,7 +8,7 @@ self.addEventListener("install", function(event) {
         '/index.html',
         '/main.html',
         '/sobre.html',
-        '/css/styles.css',
+        'styles.css',
         'app.js',
         // Adicione outros recursos que você deseja armazenar em cache aqui
       ]);
