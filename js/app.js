@@ -66,25 +66,13 @@ var dataActual = new Date();
 
   var dataIslâmica = calcularDataIslâmica(dataActual);
   document.getElementById('dataIslamic').textContent = dataIslâmica;
-  function calcularDataRamadan(dataGregoriana) {
-    var ano = dataGregoriana.getFullYear();
-    var anoIslâmico = calcularAnoIslâmico(ano);
-    var ultimoDiaShaBan = new Date(ano, 3, 30); // Último dia de Sha'ban
-    var primeiroDiaRamadan = new Date(ano, 4, 1); // Primeiro dia de Ramadan
-    
-    // Verificando se a data atual é antes ou igual ao último dia de Sha'ban
-    if (dataGregoriana < ultimoDiaShaBan) {
-        return ultimoDiaShaBan.getDate() + ' ' + obterNomeMêsIslâmico(ultimoDiaShaBan.getMonth() + 1) + ' ' + anoIslâmico + ' AH';
-    } else {
-        return primeiroDiaRamadan.getDate() + ' ' + obterNomeMêsIslâmico(primeiroDiaRamadan.getMonth() + 1) + ' ' + anoIslâmico + ' AH';
-    }
-}
-  // function calcularDataIslâmica(dataGregoriana) {
-  //   var anoIslâmico = calcularAnoIslâmico(dataGregoriana.getFullYear(), dataGregoriana.getMonth() + 1, dataGregoriana.getDate());
-  //   var dataIslâmicaFormatada = dataGregoriana.getDate() + ' ' + obterNomeMêsIslâmico(dataGregoriana.getMonth() + 1) + ' ' + anoIslâmico + ' AH';
 
-  //   return dataIslâmicaFormatada;
-  // }
+  function calcularDataIslâmica(dataGregoriana) {
+    var anoIslâmico = calcularAnoIslâmico(dataGregoriana.getFullYear(), dataGregoriana.getMonth() + 1, dataGregoriana.getDate());
+    var dataIslâmicaFormatada = dataGregoriana.getDate() + ' ' + obterNomeMêsIslâmico(dataGregoriana.getMonth() + 1) + ' ' + anoIslâmico + ' AH';
+
+    return dataIslâmicaFormatada;
+  }
 
   function calcularAnoIslâmico(ano, mês, dia) {
     if (mês < 3 || (mês === 3 && dia < 21)) {
