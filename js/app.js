@@ -42,8 +42,8 @@ fetch(apiUrl)
     const randomHadiths = Math.floor(Math.random()*total)
     var ditos = data.hadiths.data[randomHadiths].hadithEnglish
     var nara = data.hadiths.data[randomHadiths].englishNarrator
-    hadth.innerText = ditos
-    narrator.innerText = nara
+    hadth.innerText = ditos;
+    narrator.innerText = nara;
 })
 .catch(error => {
     console.log(error);
