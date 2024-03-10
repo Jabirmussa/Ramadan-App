@@ -44,10 +44,13 @@ fetch(apiUrl)
     var nara = data.hadiths.data[randomHadiths].englishNarrator
     hadth.innerText = ditos;
     narrator.innerText = nara;
+    
 })
 .catch(error => {
     console.log(error);
 })
+
+
 
 var dataAtual = new Date();
 
