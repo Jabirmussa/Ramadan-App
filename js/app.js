@@ -83,13 +83,13 @@ var dataActual = new Date();
   }
 
   function obterNomeMêsIslâmico(mês) {
-    var nomesMesesIslâmicos = ['Muharram', 'Safar', 'Rabi\' al-Awwal', 'Rabi\' al-Thani', 'Jumada al-Awwal', 'Jumada al-Thani', 'Rajab', 'Sha\'ban', 'Ramadã', 'Shawwal', 'Dhu al-Qi\'dah', 'Dhu al-Hijjah'];
+    var nomesMesesIslâmicos = ['Muharram', 'Safar', 'Rabi\' al-Awwal', 'Rabi\' al-Thani', 'Jumada al-Awwal', 'Jumada al-Thani', 'Rajab', 'Sha\'ban', 'Ramadam', 'Shawwal', 'Dhu al-Qi\'dah', 'Dhu al-Hijjah'];
     return nomesMesesIslâmicos[mês - 1];
   }
 
 Notification.requestPermission()
 .then( permission => {
-  new Notification('hello Jabir!');
+  new Notification('Salam Bay!');
 })
 
 const modeIcon = document.querySelector('#mode-icon');
