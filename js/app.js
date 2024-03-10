@@ -75,7 +75,7 @@ var dataActual = new Date();
   }
 
   function calcularAnoIslâmico(ano, mês, dia) {
-    if (mês < 3 || (mês === 3 && dia < 21)) {
+    if (mês < 4 || (mês === 4 && dia < 21)) {
       return ano - 622;
     } else {
       return ano - 621;
